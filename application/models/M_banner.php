@@ -31,4 +31,10 @@ class M_banner extends CI_Model
         $hsl = $this->db->get('tbl_banner');
         return $hsl;
     }
+    function tampil_data_homepage()
+    {
+     $this->db->select('*');
+     $hsl = $this->db->get('tbl_banner');
+     return $hsl; 
+ }
 }

@@ -4,16 +4,14 @@
     <div class="fl_left">
       <ul class="nospace">
         <li><a href="index.html"><i class="fas fa-home fa-lg"></i></a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
         <li><a href="#">Login</a></li>
-        <li><a href="#">Register</a></li>
+        <li><a href="#">Daftar Warga</a></li>
       </ul>
     </div>
     <div class="fl_right">
       <ul class="nospace">
-        <li><i class="fas fa-phone rgtspace-5"></i> +00 (123) 456 7890</li>
-        <li><i class="fas fa-envelope rgtspace-5"></i> info@domain.com</li>
+        <li><i class="fas fa-phone rgtspace-5"></i> (021) 55764961</li>
+        <li><i class="fas fa-map rgtspace-5"></i> RT.002 / RW.004, Karang Timur, Kec. Karang Tengah</li>
       </ul>
     </div>
     <!-- ################################################################################################ -->

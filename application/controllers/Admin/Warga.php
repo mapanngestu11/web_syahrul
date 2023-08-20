@@ -53,7 +53,7 @@ class Warga  extends CI_Controller
     }
     public function add()
     {
-     date_default_timezone_set("Asia/Jakarta");
+       date_default_timezone_set("Asia/Jakarta");
         $config['upload_path'] = './assets/upload/'; //path folder
         $config['allowed_types'] = 'jpg|png|jpeg|pdf'; //type yang dapat diakses bisa anda sesuaikan
         $config['encrypt_name'] = TRUE; //nama yang terupload nantinya

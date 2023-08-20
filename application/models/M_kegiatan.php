@@ -31,4 +31,13 @@ class M_kegiatan extends CI_Model
         $hsl = $this->db->get('tbl_kegiatan');
         return $hsl;
     }
+    function tampil_data_homepage ()
+    {
+        $this->db->select('*');
+        $this->db->order_by("id_kegiatan", "DESC");
+        $this->db->limit('');
+        $hsl = $this->db->get('tbl_kegiatan');
+        return $hsl;
+    }
+
 }

@@ -35,7 +35,7 @@ class Kegiatan  extends CI_Controller
 
     public function add()
     {
-       date_default_timezone_set("Asia/Jakarta");
+     date_default_timezone_set("Asia/Jakarta");
         $config['upload_path'] = './assets/upload/'; //path folder
         $config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
         $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
@@ -108,8 +108,8 @@ class Kegiatan  extends CI_Controller
                 $config['create_thumb'] = FALSE;
                 $config['maintain_ratio'] = FALSE;
                 $config['quality'] = '100%';
-                $config['width'] = 1950;
-                $config['height'] = 631;
+                $config['width'] = 500;
+                $config['height'] = 450;
                 $config['new_image'] = './assets/upload/' . $gbr['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
@@ -157,13 +157,13 @@ class Kegiatan  extends CI_Controller
 
           $data = array(
 
-             'nama_kegiatan' => $nama_kegiatan,
-             'isi_kegiatan' => $isi_kegiatan,
-             'status' => $status,
-             'tanggal' => $tanggal,
-             'nama_lengkap' => $nama_lengkap
+           'nama_kegiatan' => $nama_kegiatan,
+           'isi_kegiatan' => $isi_kegiatan,
+           'status' => $status,
+           'tanggal' => $tanggal,
+           'nama_lengkap' => $nama_lengkap
 
-         );
+       );
 
 
 
