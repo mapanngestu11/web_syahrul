@@ -3,9 +3,9 @@
     <!-- ################################################################################################ -->
     <div class="fl_left">
       <ul class="nospace">
-        <li><a href="index.html"><i class="fas fa-home fa-lg"></i></a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Daftar Warga</a></li>
+        <li><a href="<?php echo base_url('Home') ?>"><i class="fas fa-home fa-lg"></i></a></li>
+        <li><a href="<?php echo base_url('Login') ?>">Login</a></li>
+        <!-- <li><a href="#">Daftar Warga</a></li> -->
       </ul>
     </div>
     <div class="fl_right">

@@ -36,7 +36,7 @@ class Login extends CI_Controller {
             // var_dump($xcadmin['hak_akses']);
             // die;
 
-			if ($xcadmin['hak_akses'] == 'admin') {
+			if ($xcadmin['hak_akses'] == 'admin'  || $xcadmin['hak_akses'] == 'lurah') {
 				$this->session->set_userdata('akses', 'admin');
 				$id = $xcadmin['id'];
 				$nama_lengkap = $xcadmin['nama_lengkap'];
@@ -70,5 +70,15 @@ class Login extends CI_Controller {
 			$this->session->set_flashdata('msg', '<div class="alert alert-warning" role="alert">Username Atau Password Salah</div>');
 			redirect('Login');
 		}
+	}
+
+	
+	public function logout()
+	{
+		       // Lakukan proses logout di sini
+		$this->session->sess_destroy();
+
+        // Redirect ke halaman setelah logout berhasil
+		redirect('Login');
 	}
 }

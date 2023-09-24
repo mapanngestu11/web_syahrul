@@ -79,8 +79,8 @@
                                     <select name="hak_akses" class="form-control" required>
                                       <option value="">--Pilih--</option>
                                       <option value="admin"> Admin </option>
-                                      <option value="kepsek"> kepsek </option>
-                                      <option value="Orangtua"> Orangtua </option>
+                                      <option value="lurah"> Lurah </option>
+
                                     </select>
                                   </div>
                                 </div>

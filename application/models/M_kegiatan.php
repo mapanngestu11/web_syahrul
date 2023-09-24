@@ -13,6 +13,12 @@ class M_kegiatan extends CI_Model
     {
         $this->db->insert($table, $data);
     }
+    function jumlah_data_kegiatan()
+    {
+        $this->db->select('count(tbl_kegiatan.id_kegiatan) as jumlah');
+        $hsl = $this->db->get('tbl_kegiatan');
+        return $hsl;
+    }
 
     function delete_data($id_kegiatan)
     {

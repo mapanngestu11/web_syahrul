@@ -217,7 +217,7 @@
             type: 'success',
             title: 'Sukses',
             heading: 'Success',
-            text: "Data Berhasil Di Update.",
+            text: "Data Banner Berhasil Di Ubah.",
             showHideTransition: 'slide',
             icon: 'success',
             hideAfter: false,

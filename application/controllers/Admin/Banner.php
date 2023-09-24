@@ -69,10 +69,10 @@ class Banner  extends CI_Controller
                 );
 
                 $this->M_banner->update_data($where,$data,'tbl_banner');
-                echo $this->session->set_flashdata('msg', 'success_update');
+                echo $this->session->set_flashdata('msg', 'info-update');
                 redirect('Admin/Banner');
             } else {
-                echo $this->session->set_flashdata('msg', 'warning_update');
+                echo $this->session->set_flashdata('msg', 'info-update');
                 redirect('Admin/Banner');
             }
 

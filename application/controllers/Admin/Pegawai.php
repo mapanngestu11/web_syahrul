@@ -1,13 +1,13 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class Kegiatan  extends CI_Controller
+class Pegawai  extends CI_Controller
 {
 
 
     function __construct()
     {
         parent::__construct();
-        $this->load->model('M_kegiatan');
+        $this->load->model('M_pegawai');
         $this->load->helper('url');
         $this->load->library('upload');
 
@@ -21,29 +21,29 @@ class Kegiatan  extends CI_Controller
 
     public function index()
     {
-        $data['kegiatan'] = $this->M_kegiatan->tampil_data();
-        $this->load->view('Admin/List.kegiatan.php', $data);
+        $data['pegawai'] = $this->M_pegawai->tampil_data();
+        $this->load->view('Admin/List.pegawai.php', $data);
     }
 
-    public function delete($id_kegiatan)
+    public function delete($id_pegawai)
     {
-        $id_kegiatan = $this->input->post('id_kegiatan');
-        $this->M_kegiatan->delete_data($id_kegiatan);
+        $id_pegawai = $this->input->post('id_pegawai');
+        $this->M_pegawai->delete_data($id_pegawai);
         echo $this->session->set_flashdata('msg', 'success-hapus');
-        redirect('Admin/Kegiatan');
+        redirect('Admin/Pegawai');
     }
 
     public function add()
     {
-     date_default_timezone_set("Asia/Jakarta");
+       date_default_timezone_set("Asia/Jakarta");
         $config['upload_path'] = './assets/upload/'; //path folder
         $config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
         $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
         $config['max_size']  = 10000; //Batas Ukuran
 
         $this->upload->initialize($config);
-        if (!empty($_FILES['gambar']['name'])) {
-            if ($this->upload->do_upload('gambar')) {
+        if (!empty($_FILES['foto']['name'])) {
+            if ($this->upload->do_upload('foto')) {
                 $gbr = $this->upload->data();
                 //Compress Image
                 $config['image_library'] = 'gd2';
@@ -57,38 +57,30 @@ class Kegiatan  extends CI_Controller
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
 
-                $gambar = $gbr['file_name'];
-                $nama_kegiatan = $this->input->post('nama_kegiatan');
-                $isi_kegiatan = $this->input->post('isi_kegiatan');
-                $status = '1';
-                $isi_kegiatan =  $this->input->post('isi_kegiatan');
-                $nama_lengkap = $this->input->post('nama_lengkap');
-                $tanggal =  date('Y-m-d h:i:s');
+                $foto = $gbr['file_name'];
+                $nip = $this->input->post('nip');
+                $nama = $this->input->post('nama');
+                $jabatan =  $this->input->post('jabatan');
 
                 $data = array(
 
-                    'nama_kegiatan' => $nama_kegiatan,
-                    'isi_kegiatan' => $isi_kegiatan,
-                    'gambar' => $gambar,
-                    'status' => $status,
-                    'tanggal' => $tanggal,
-                    'isi_kegiatan' => $isi_kegiatan,
-                    'nama_lengkap' => $nama_lengkap
+                    'nip' => $nip,
+                    'nama' => $nama,
+                    'jabatan' => $jabatan,
+                    'foto' => $foto
+
 
                 );
 
-
-
-                $this->M_kegiatan->input_data($data, 'tbl_kegiatan');
+                $this->M_pegawai->input_data($data, 'tbl_pegawai');
                 echo $this->session->set_flashdata('msg', 'success');
-                redirect('Admin/Kegiatan');
+                redirect('Admin/Pegawai');
             } else {
                 echo $this->session->set_flashdata('msg', 'warning');
-                redirect('Admin/Kegiatan');
+                redirect('Admin/Pegawai');
             }
         } else {
-
-            redirect('Admin/Kegiatan');
+            redirect('Admin/Pegawai');
         }
     }
 
@@ -117,17 +109,17 @@ class Kegiatan  extends CI_Controller
                 $this->image_lib->resize();
 
                 $gambar = $gbr['file_name'];
-                $id_kegiatan = $this->input->post('id_kegiatan');
-                $nama_kegiatan = $this->input->post('nama_kegiatan');
-                $isi_kegiatan = $this->input->post('isi_kegiatan');
+                $id_pegawai = $this->input->post('id_pegawai');
+                $nama_pegawai = $this->input->post('nama_pegawai');
+                $isi_pegawai = $this->input->post('isi_pegawai');
                 $status = $this->input->post('status');
                 $nama_lengkap = $this->input->post('nama_lengkap');
                 $tanggal =  date('Y-m-d h:i:s');
 
                 $data = array(
 
-                    'nama_kegiatan' => $nama_kegiatan,
-                    'isi_kegiatan' => $isi_kegiatan,
+                    'nama_pegawai' => $nama_pegawai,
+                    'isi_pegawai' => $isi_pegawai,
                     'gambar' => $gambar,
                     'status' => $status,
                     'tanggal' => $tanggal,
@@ -136,10 +128,10 @@ class Kegiatan  extends CI_Controller
                 );
 
                 $where = array(
-                    'id_kegiatan' => $id_kegiatan
+                    'id_pegawai' => $id_pegawai
                 );
 
-                $this->M_kegiatan->update_data($where,$data,'tbl_kegiatan');
+                $this->M_pegawai->update_data($where,$data,'tbl_pegawai');
                 echo $this->session->set_flashdata('msg', 'success_update');
                 redirect('Admin/Kegiatan');
             } else {
@@ -149,9 +141,9 @@ class Kegiatan  extends CI_Controller
 
         } else {
 
-          $id_kegiatan = $this->input->post('id_kegiatan');
-          $nama_kegiatan = $this->input->post('nama_kegiatan');
-          $isi_kegiatan = $this->input->post('isi_kegiatan');
+          $id_pegawai = $this->input->post('id_pegawai');
+          $nama_pegawai = $this->input->post('nama_pegawai');
+          $isi_pegawai = $this->input->post('isi_pegawai');
           $status = $this->input->post('status');
           $nama_lengkap = $this->input->post('nama_lengkap');
           $tanggal =  date('Y-m-d h:i:s');
@@ -159,21 +151,21 @@ class Kegiatan  extends CI_Controller
 
           $data = array(
 
-           'nama_kegiatan' => $nama_kegiatan,
-           'isi_kegiatan' => $isi_kegiatan,
-           'status' => $status,
-           'tanggal' => $tanggal,
-           'nama_lengkap' => $nama_lengkap
+             'nama_pegawai' => $nama_pegawai,
+             'isi_pegawai' => $isi_pegawai,
+             'status' => $status,
+             'tanggal' => $tanggal,
+             'nama_lengkap' => $nama_lengkap
 
-       );
+         );
 
 
 
           $where = array(
-            'id_kegiatan' => $id_kegiatan
+            'id_pegawai' => $id_pegawai
         );
 
-          $cek = $this->M_kegiatan->update_data($where,$data,'tbl_kegiatan');
+          $cek = $this->M_pegawai->update_data($where,$data,'tbl_pegawai');
           echo $this->session->set_flashdata('msg', 'success_update');
           redirect('Admin/Kegiatan');
       }
