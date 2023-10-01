@@ -35,21 +35,21 @@ class Surat_kk_baru  extends CI_Controller
 
     public function cetak_laporan ()
     {
-       $tanggal = $this->input->post('tanggal');
-       $bulan = date('m', strtotime($tanggal));
+     $tanggal = $this->input->post('tanggal');
+     $bulan = date('m', strtotime($tanggal));
 
-       $data['keterangan'] = 'Permohonan Surat KK Baru';
-       $data['laporan'] = $this->M_surat_kk_baru->cetak_laporan($bulan);
+     $data['keterangan'] = 'Permohonan Surat KK Baru';
+     $data['laporan'] = $this->M_surat_kk_baru->cetak_laporan($bulan);
 
-       $this->load->view('Admin/Cetak_laporan.php',$data);
+     $this->load->view('Admin/Cetak_laporan.php',$data);
 
-   }
-
-
+ }
 
 
-   public function cek_warga()
-   {
+
+
+ public function cek_warga()
+ {
     $data = (object)array();
     $nik = $this->input->post('input_check_nik');
         // $nis = '2022001';
@@ -118,14 +118,14 @@ public function add()
 
 
                 $data = array(
-                 'kode_permohonan' => $kode_permohonan,
-                 'nik' => $nik,
-                 'alasan' => $alasan,
-                 'status' => $status,
-                 'file_pemohon' => $file,
-                 'nama_user' => $nama_user,
-                 'tanggal' => $tanggal
-             );
+                   'kode_permohonan' => $kode_permohonan,
+                   'nik' => $nik,
+                   'alasan' => $alasan,
+                   'status' => $status,
+                   'file_pemohon' => $file,
+                   'nama_user' => $nama_user,
+                   'tanggal' => $tanggal
+               );
 
                 $this->M_surat_kk_baru->input_data($data, 'tbl_permohonan_kk_baru');
                 echo $this->session->set_flashdata('msg', 'success');
@@ -175,7 +175,7 @@ public function add()
                     'status' => $status,
                     'alasan' => $alasan,
                     'keterangan' => $keterangan,
-                    'file_pemohon' => $file,
+                    'file_surat' => $file,
                     'nama_user' => $nama_user,
                     'tanggal' => $tanggal
 

@@ -34,32 +34,35 @@ class Permohonan_kk_baru extends CI_Controller {
 		$status = $hasil[0]->status;
 		$keterangan = $hasil[0]->keterangan;
 		$file_surat = $hasil[0]->file_surat;
+        $jenis_permohonan = 'Permohonan KK Baru';
 
 
 
-		if ($status == '1') {   
-			$data['hasil'] = array(
-				'status' => $status,
-				'keterangan' => $keterangan,
-				'file_surat' => $file_surat
+        if ($status == '1') {   
+         $data['hasil'] = array(
+            'status' => $status,
+            'jenis_permohonan' => $jenis_permohonan,
+            'keterangan' => $keterangan,
+            'file_surat' => $file_surat
 
-			);
-			$this->load->view('Front/Hasil_permohonan.php',$data);
+        );
+         
+         $this->load->view('Front/Hasil_permohonan.php',$data);
 
-		}else{
-			echo $this->session->set_flashdata('msg', 'proses');
-			redirect('Permohonan_kk_baru');
-		}
+     }else{
+         echo $this->session->set_flashdata('msg', 'proses');
+         redirect('Permohonan_kk_baru');
+     }
 
-	}
+ }
 
-	public function add()
-	{
-		$nik = $this->input->post('nik');
-		$hasil = $this->M_surat_kk_baru->cek_ktp($nik)->result();
+ public function add()
+ {
+  $nik = $this->input->post('nik');
+  $hasil = $this->M_surat_kk_baru->cek_ktp($nik)->result();
 
-		if ($hasil) {
-			date_default_timezone_set("Asia/Jakarta");
+  if ($hasil) {
+     date_default_timezone_set("Asia/Jakarta");
         $config['upload_path'] = './assets/upload/'; //path folder
         $config['allowed_types'] = 'jpg|png|jpeg|pdf'; //type yang dapat diakses bisa anda sesuaikan
         $config['encrypt_name'] = TRUE; //nama yang terupload nantinya

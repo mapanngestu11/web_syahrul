@@ -17,12 +17,12 @@
 	</style>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2">
-				<img src="<?php echo base_url()."assets/front/img/logo tangkot.png"; ?>" class="logo">
-			</div>
-			<div class="col-md-10">
-				<h3 class="judul">Laporan <?php echo $keterangan;?> <br> Kelurahan Karang Timur</h3>
-			</div>
+			
+			<img src="<?php echo base_url()."assets/front/img/logo tangkot.png"; ?>" class="logo">
+			
+			
+			<h3 class="judul">Laporan <?php echo $keterangan;?> <br> Kelurahan Karang Timur</h3>
+			
 		</div>
 	</div>
 

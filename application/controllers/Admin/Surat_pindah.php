@@ -39,7 +39,7 @@ class Surat_pindah  extends CI_Controller
 
        $data['keterangan'] = 'Permohonan Surat Pindah';
        $data['laporan'] = $this->M_surat_pindah->cetak_laporan($bulan);
-       
+
        $this->load->view('Admin/Cetak_laporan.php',$data);
 
    }
@@ -190,7 +190,7 @@ public function add()
                     'status' => $status,
                     'alasan' => $alasan,
                     'keterangan' => $keterangan,
-                    'file_pemohon' => $file,
+                    'file_surat' => $file,
                     'nama_user' => $nama_user,
                     'tanggal' => $tanggal
 
